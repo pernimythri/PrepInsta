@@ -40,7 +40,7 @@ import java.util.*;
 class Main{
     int SumofNaturals(int n)
     {
-        int sum=0;
+        int sum=0;                                       or          return n*(n+1)/2;
         for(int i=1;i<=n;i++)
         sum+=i;
         return sum;
@@ -53,3 +53,27 @@ class Main{
         System.out.println(obj.SumofNaturals(n));
     }
 }
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    int SumofNaturalsinRange(int start,int end)
+    {
+        int sum=0;                                           or          return (end*(end+1)/2)-(start*(start+1)/2)+start;
+        for(int i=start;i<=end;i++)
+        sum+=i;
+        return sum;
+    }
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        Main obj=new Main();
+        int start=sc.nextInt();
+        int end=sc.nextInt();
+        System.out.println(obj.SumofNaturalsinRange(start,end));
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
