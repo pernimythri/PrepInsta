@@ -56,8 +56,6 @@ class Main{
 
 ---------------------------------------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------------------------------------
-
 import java.util.*;
 class Main{
     int SumofNaturalsinRange(int start,int end)
@@ -97,5 +95,33 @@ class Main{
         int n2=sc.nextInt();
         System.out.println(obj.greaterOfTwoNum(n1,n2));
     }
----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+
+class Main {
+    int largestOfThree(int a, int b, int c) {
+        if (a >= b && a >= c) {
+            return a;
+        } else if (b  >= c) {                            or                  return Math.max(a, Math.max(b, c));    or             return (a >= b && a >= c) ? a : (b >= c ? b : c);
+            return b;   
+        } else {
+            return c;
+        }
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        Main obj = new Main();
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        int largest = obj.largestOfThree(a, b, c);
+        System.out.println(largest);
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
