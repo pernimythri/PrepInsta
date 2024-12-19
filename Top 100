@@ -526,4 +526,185 @@ class Main{
         obj.primefactors(n);
     }
 }
+----------------------------------------------------------------------------------------------------
 
+import java.util.*;
+class Main{
+    String Strong(int n)
+    {
+        int sum=0,temp=n;
+        while(n>0)
+        {
+            int rem=n%10;
+            sum+=fact(rem);
+            n/=10;
+        }
+    if(temp==sum)
+    return "Strong Number";
+    else
+    return "Not Strong Number";
+    }
+    int fact(int n)
+    {
+        if(n==1 || n==0)
+        return 1;
+        else
+        return n*fact(n-1);
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.Strong(n));
+    }
+}
+-----------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    String perfect(int n)
+    {
+        int sum=0,temp=n;
+        for(int i=1;i*i<n;i++)
+        {
+            if(n%i==0)
+            {
+                sum+=i;
+                if(i!=1 && n/i!=i)
+                sum+=(n/i);
+            }
+        }
+        if(sum==temp)
+        return "Perfect Number";
+        else
+        return "Not Perfect Number";
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.perfect(n));
+    }
+}
+-------------------------------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    String Automorphic(int n)
+    {
+        int square=n*n;
+        while(n>0)
+        {
+            if(n%10!=square%10)
+            return "Not Automorphic Number";
+            n/=10;
+            square/=10;
+        }
+        return "Automorphic Number";
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.Automorphic(n));
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    String Harshad(int n)
+    {
+        int sum=0,temp=n;
+        while(n>0)
+        {
+            sum+=n%10;
+            n/=10;
+        }
+        if((temp%sum)==0)
+        return "Harshad Number";
+        else
+        return "Not Harshad Number";
+    }
+
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.Harshad(n));
+    }
+}
+----------------------------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    String AbundantNumber(int n)
+    {
+        int sum=0,temp=n;
+        for(int i=1;i*i<n;i++)
+        {
+            if(n%i==0)
+            {
+                sum+=i;
+                if(i!=1 && n/i!=i)
+                sum+=(n/i);
+            }
+        }
+        if(sum>temp)
+        return "Abundant Number";
+        else
+        return "Not Abundant Number";
+    }
+
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.AbundantNumber(n));
+    }
+}
+----------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    String FriendlyPair(int n1,int n2)
+    {
+        int temp1=n1,temp2=n2;
+        int sum1=0,sum2=0;
+        for(int i=1;i*i<=n1;i++)
+        {
+            if(n1%i==0)
+            {
+            sum1+=i;
+            if(i!=1 && n1/i!=i)
+            sum1+=(n1/i);
+            } 
+        }
+         for(int i=1;i*i<=n2;i++)
+        {
+            if(n2%i==0)
+            {
+            sum2+=i;
+            if(i!=1 && n2/i!=i)
+            sum2+=(n2/i);
+            } 
+        }
+        if(sum1/n1 == sum2/n2)
+            return "Friendly Pair";
+        else
+        return "Not Friendly Pair";
+    }
+
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.print(obj.FriendlyPair(n1,n2));
+    }
+}
+------------------------------------------------------------------------------------------
