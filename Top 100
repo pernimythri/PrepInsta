@@ -447,3 +447,83 @@ class Main{
     }
 }
 
+-------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    void factor(int n)
+    {
+        List<Integer> factors = new ArrayList<>();
+        for(int i=1;i*i<=n;i++)
+        {
+            if(n%i==0)
+            {
+            factors.add(i);
+            if(n/i!=i)
+            factors.add(n/i);
+        }
+        }
+        Collections.sort(factors);
+        for(int i=0;i<factors.size();i++)
+        System.out.print(factors.get(i)+" ");
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        obj.factor(n);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    void primefactors(int n)
+    {
+        List<Integer>factors=new ArrayList<>();
+        for(int i=1;i*i<=n;i++)
+        {
+            if(n%i==0)
+            {
+            if(prime(i))
+            factors.add(i);
+            if(n/i!=i)
+            {
+            if(prime(n/i))
+            factors.add(n/i);
+        }}
+        }
+        Collections.sort(factors);
+        for(int i=0;i<factors.size();i++)
+        
+        {
+           System.out.print(factors.get(i)+" ");
+         }
+    }
+    boolean prime(int n)
+    {
+        int count=0;
+        for(int i=1;i*i<=n;i++)
+        {
+            if(n%i==0)
+            {
+            count++;
+            if(n/i!=i)
+            count++;
+            }
+        }
+        if(count==2)
+        return true;
+        else
+        return false;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        obj.primefactors(n);
+    }
+}
+
