@@ -98,4 +98,144 @@ class Main{
 ----------------------------------------------------------------------------------------------------
 
 
+import java.util.*;
+class Main{
+       int lcm(int n1, int n2) {
+           int max=Math.max(n1,n2);
+           int sol=1;
+           for(int i=max;i<=n1*n2;i++)
+           {
+               if(i%n1==0 && i%n2==0)
+               {
+                   sol=i;
+               }
+           }
+           return sol;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.print(obj.lcm(n1,n2));
+    }
+}
+
+
+          or
+
+import java.util.*;
+class Main{
+       int lcm(int n1, int n2) {
+           int gcd=1;
+           for(int i=1;i<=Math.min(n1,n2);i++)
+           {
+               if(n1%i==0 && n2%i==0)
+               {
+                   gcd=i;
+               }
+           }
+           return (n1*n2)/gcd;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.print(obj.lcm(n1,n2));
+    }
+}
+---------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+       int binToDec(int n)
+       {
+           int sol=0,i=0;
+           while(n>0)
+           {
+               int rem=n%10;
+               sol+=rem*Math.pow(2,i);
+               i++;
+               n/=10;
+           }
+          return sol;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.binToDec(n));
+    }
+}
+
+------------------------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+       int octToDec(int n)
+       {
+           int sol=0,i=0;
+           while(n>0)
+           {
+               int rem=n%10;
+               sol+=rem*Math.pow(8,i);
+               i++;
+               n/=10;
+           }
+          return sol;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.octToDec(n));
+    }
+}
+----------------------------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+      int hexToDec(String n)
+      {
+          String hexvalues="0123456789ABCDEF";
+          n=n.toUpperCase();
+          int val=0;
+          for(int i=0;i<n.length();i++)
+          {
+               char c = n.charAt(i);  
+               int d = hexvalues.indexOf(c);  
+               val = 16*val + d;
+          }
+          return val;
+
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        String n=sc.next();
+        System.out.print(obj.hexToDec(n));
+    }
+}
+         or
+
+import java.util.*;
+class Main{
+      int hexToDec(String n)
+      {
+          int sol=Integer.parseInt(n,16);
+          return sol;
+      }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        String n=sc.next();
+        System.out.print(obj.hexToDec(n));
+    }
+}
+-----------------------------------------------------------------------------------------------
 
