@@ -238,4 +238,40 @@ class Main{
     }
 }
 -----------------------------------------------------------------------------------------------
+import java.util.*;
+
+class Main {
+    String decToBin(int n) {
+        StringBuilder bin = new StringBuilder();
+        while (n > 0) {
+            int rem = n % 10; 
+            String binaryDigit = binary(rem);
+            bin.insert(0, binaryDigit); 
+            n /= 10;
+        }
+        return bin.toString();
+    }
+
+    String binary(int val) {
+        StringBuilder binaryFormat = new StringBuilder();
+        while (val > 0) {
+            binaryFormat.append(val % 2); 
+            val /= 2;
+        }
+        binaryFormat.reverse();
+
+        while (binaryFormat.length() < 4) {
+            binaryFormat.insert(0, "0");
+        }
+
+        return binaryFormat.toString();
+    }
+
+    public static void main(String[] args) {
+        Main obj = new Main();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("Binary representation: " + obj.decToBin(n));
+    }
+}
 
