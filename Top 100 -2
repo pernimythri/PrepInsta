@@ -419,3 +419,133 @@ class Main{
     }
 }
 -------------------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    String CoordinateQuadrant(int x,int y)
+    {
+       if(x>0 && y>0)
+       return "First Quadrant";
+       else if(x<0 && y>0)
+       return "Second Quadrant";
+       else if(x<0 && y<0)
+       return "Third Quadrant";
+       else if(x>0 && y<0)
+       return "Fourth Quadrant";
+       else if(x==0 && y==0)
+       return "Origin";
+       else if(x==0 && y!=0)
+       return "Y-axis";
+       else
+       return "X-axis";
+    }    
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        System.out.print(obj.CoordinateQuadrant(x,y));
+    }
+}
+--------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    int Permutation(int n,int r)
+    {
+        if(r>n)
+        return 0;
+        int nfact=factorial(n);
+        int denfact=factorial(n-r);
+        return (nfact/denfact);
+    }
+    
+    int factorial(int n)
+    {
+        if(n==1 || n==0)
+        return 1;
+        else
+        return n*factorial(n-1);
+    }
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int r=sc.nextInt();
+        System.out.print(obj.Permutation(n,r));
+    }
+}
+---------------------------------------------------------------------------------
+/*
+ . For the first person, there will be N-1 people to shake hands with
+ . For second person, there will be N -1 people available but as he has already shaken hands with the first person, there will be N-1-1 = N-2 shake-hands
+ . For third person, there will be N-1-1-1 = N-3, and So On…
+ . Therefore the total number of handshake   =   ( N – 1 + N – 2 +….+ 1 + 0 )   =   ( (N-1) * N ) / 2.
+*/
+import java.util.*;
+class Main{
+    int maxHandShakes(int n)
+    {
+        return n*(n-1)/2;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.maxHandShakes(n));
+    }
+}
+-----------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    String AddTwoFractions(int n1,int n2,int d1,int d2)
+    {
+        int lcm=lcmfun(d1,d2);
+        int muln1=lcm/d1;
+        int muln2=lcm/d2;
+        n1=n1*muln1;
+        n2=n2*muln2;
+        int num=n1+n2;
+        int result=hcf(num,lcm);
+        num/=result;
+        lcm/=result;
+        return "("+num+"/"+lcm+")";
+    }
+    
+    int lcmfun(int d1,int d2)
+    {
+        int val=1;
+        int max=Math.max(d1,d2);
+        for(int i=max;i<=d1*d2;i++)
+        {
+            if(i%d1==0 && i%d2==0)
+            val=i;
+        }
+        return val;
+    }
+   
+   int hcf(int n1,int n2)
+   {
+       int val=1;
+       for(int i=1;i<=Math.min(n1,n2);i++)
+       {
+           if(n1%i==0 && n2%i==0)
+           val=i;
+       }
+       return val;
+   }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        int d1=sc.nextInt();
+        int d2=sc.nextInt();
+        System.out.print(obj.AddTwoFractions(n1,n2,d1,d2));
+    }
+}
+-----------------------------------------------------------------------------
