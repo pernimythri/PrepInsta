@@ -275,3 +275,147 @@ class Main {
     }
 }
 
+---------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    
+    String decToOctal(int n)
+    {
+        StringBuilder octalFormat=new StringBuilder();
+        while(n>0)
+        {
+            int quotient=n/8;
+            octalFormat.append(n%8);
+            n=quotient;
+        }
+        return octalFormat.reverse().toString();
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.decToOctal(n));
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    
+    String decToHexaDecimal(int n)
+    {
+        StringBuilder hexFormat=new StringBuilder();
+        while(n>0)
+        {
+            int rem=n%16;
+            if(rem>9)
+            {
+                hexFormat.append(hexvalues(rem));
+            }
+            else
+            {
+                hexFormat.append(rem);
+            }
+            n=n/16;
+        }
+        return hexFormat.reverse().toString();
+    }
+    
+    char hexvalues(int rem)
+    {
+        String hexstring="0123456789ABCDEF";
+        return hexstring.charAt(rem);
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.decToHexaDecimal(n));
+    }
+}
+-------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Main{
+    
+    String binToOctal(int n)
+    {
+       int binToDec=binToDecfun(n);
+       String decToOctal=decToOctalfun(binToDec);
+       return decToOctal;
+    }
+    
+    int binToDecfun(int n)
+    {
+       int c=0;
+       int dec=0;
+       while(n>0)
+       {
+           int digit=n%10;
+           dec+=digit*(Math.pow(2,c));
+           c+=1;
+           n/=10;
+       }
+       return dec;
+    }
+    
+    String decToOctalfun(int n)
+    {
+        StringBuilder octalFormat=new StringBuilder();
+        while(n>0)
+        {
+            octalFormat.append(n%8);
+            n=n/8;
+        }
+        return octalFormat.reverse().toString();
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.binToOctal(n));
+    }
+}
+
+-----------------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    String octToBin(int n)
+    {
+        StringBuilder binaryFormat = new StringBuilder();
+        while(n>0)
+        {
+            int rem=n%10;
+            binaryFormat.insert(0,bindigit(rem));
+            n/=10;
+        }
+        return binaryFormat.toString();
+    }
+
+    String bindigit(int n)
+    {
+        StringBuilder eachBinBit = new StringBuilder();
+        while(n>0)
+        {
+            eachBinBit.append(n%2);
+            n/=2;
+        }
+        while(eachBinBit.length() < 3) {
+            eachBinBit.append("0");
+        }
+        return eachBinBit.reverse().toString();
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.octToBin(n));
+    }
+}
+-------------------------------------------------------------------------------------------------
