@@ -643,3 +643,41 @@ class Main{
     }
 }
 -----------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    double AreaOfCircle(int r)
+    {
+        return (3.14)*r*r;
+    }
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int r=sc.nextInt();
+        System.out.print(obj.AreaOfCircle(r));
+    }
+}
+------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    int NoOfDigits(int n)
+    {
+        int count=0;
+        while(n>0)
+        {                                              or            return (int)(Math.log10(n)+1);
+            count++;
+            n/=10;
+        }
+        return count;
+    }
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.NoOfDigits(n));
+    }
+}
+---------------------------------------------------------------------- 
