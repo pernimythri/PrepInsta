@@ -1,0 +1,176 @@
+import java.util.*;
+class Main{
+    int powerOfNum(int n,int pow)
+    {
+        if(pow==0)
+        return 1;
+        else
+        return n*powerOfNum(n,pow-1);
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int pow=sc.nextInt();
+        System.out.print(obj.powerOfNum(n,pow));
+    }   
+}
+------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    String Prime(int n,int i)
+    {
+       if(n<=2)
+       return n==2 ? "Prime" : "Not Prime" ;
+       if(n%i==0)
+       return "Not Prime";
+       if(i*i>n)
+       return "Prime";
+       else
+       return Prime(n,i+1);  
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.print(obj.Prime(n,2));
+    }   
+}
+------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    int LargestElement(int[] arr,int n,int max)
+    {
+     if(n==1)
+     return Math.max(max,arr[0]);
+     if(arr[n-1]>max)
+     max=arr[n-1];
+     return LargestElement(arr,n-1,max);
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int max=Integer.MIN_VALUE;
+        System.out.print(obj.LargestElement(arr,n,max));
+    }
+}
+--------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    int SmallestElement(int[] arr,int n,int min)
+    {
+     if(n==1)
+     return Math.min(min,arr[0]);
+     if(arr[n-1]<min)
+     min=arr[n-1];
+     return SmallestElement(arr,n-1,min);
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int min=Integer.MAX_VALUE;
+        System.out.print(obj.SmallestElement(arr,n,min));
+    }
+}
+----------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    void Reverse(int n)
+    {
+     if(n<10)
+     {
+     System.out.print(n);
+     return;
+     }
+     System.out.print(n%10);
+     Reverse(n/10);
+     }
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        obj.Reverse(n);
+    }
+}
+------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    int HCF(int n1,int n2)
+    {
+        
+        if(n2==0)
+        return n1;
+        else
+        return HCF(n2,n1%n2);
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.print(obj.HCF(n1,n2));
+    }
+}
+-----------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    int HCF(int n1,int n2)
+    {
+        
+        if(n2==0)
+        return n1;
+        else
+        return HCF(n2,n1%n2);
+    }
+        int lcm(int n1, int n2) 
+        {
+        return n1 * (n2/HCF(n1, n2));
+        }
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.print(obj.lcm(n1,n2));
+    }
+}
+--------------------------------------------------------------------------------------
+import java.util.*;
+class Main{
+    int lengthOfString(String str)
+    {
+        if(str.equals(""))
+        return 0;
+        else
+        return lengthOfString(str.substring(1))+1;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        System.out.print(obj.lengthOfString(str));
+    }
+}
+---------------------------------------------------------------------------------------
